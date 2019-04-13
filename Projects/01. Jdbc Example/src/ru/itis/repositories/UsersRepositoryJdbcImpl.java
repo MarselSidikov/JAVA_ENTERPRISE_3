@@ -2,11 +2,7 @@ package ru.itis.repositories;
 
 import ru.itis.models.User;
 
-import javax.swing.text.html.Option;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +10,10 @@ import java.util.Optional;
 public class UsersRepositoryJdbcImpl implements UsersRepository {
 
     private Connection connection;
+
+    //language=SQL
+    private final String SQL_INSERT_USER = "insert into " +
+            "taxi_user (first_name, last_name, age, is_man) values (?, ?, ?, ?);";
 
     public UsersRepositoryJdbcImpl(Connection connection) {
         this.connection = connection;
@@ -30,7 +30,40 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
 
     @Override
     public void save(User model) {
+        // TODO: добавить try-with-resources
+        try {
+            // TODO: так не делать. SQL-инъекция
+//            Statement statement = connection.createStatement();
+//            //language=SQL
+//            String query = "insert into taxi_user (first_name, last_name, is_man, age) " +
+//                    "values ('" + model.getFirstName() + "','" + model.getLastName() + "'," + model.getMan()
+//                    + "," + model.getAge() + ");";
+//            System.out.println(query);
+//            statement.executeUpdate(query);
+            PreparedStatement statement = connection.prepareStatement(SQL_INSERT_USER,
+                    Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, model.getFirstName());
+            statement.setString(2, model.getLastName());
+            statement.setInt(3, model.getAge());
+            statement.setBoolean(4, model.getMan());
+            int affectedRows = statement.executeUpdate();
 
+            if (affectedRows == 0) {
+                throw new SQLException();
+            }
+
+            ResultSet generatesKeys = statement.getGeneratedKeys();
+
+            if (generatesKeys.next()) {
+                model.setId(generatesKeys.getLong("id"));
+            } else {
+                throw new SQLException();
+            }
+            statement.close();
+            generatesKeys.close();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     @Override

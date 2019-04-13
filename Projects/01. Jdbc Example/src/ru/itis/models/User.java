@@ -15,6 +15,13 @@ public class User {
         this.isMan = isMan;
     }
 
+    public User(String firstName, String lastName, Integer age, Boolean isMan) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.isMan = isMan;
+    }
+
     public Long getId() {
         return id;
     }
