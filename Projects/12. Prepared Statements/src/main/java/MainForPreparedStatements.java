@@ -19,6 +19,7 @@ public class MainForPreparedStatements {
         callPreparedStatement(connection);
     }
 
+    // вызывает подготовленный запрос
     private static void callPreparedStatement(Connection connection) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("select s.first_name, s.last_name, c.title\n" +
                 "                                        from student s\n" +
@@ -28,7 +29,9 @@ public class MainForPreparedStatements {
                 "                                        where l.name = ?");
         preparedStatement.setString(1, "Simple Math");
         preparedStatement.execute();
+        // печатаем текущие подготовленные запросы
         printCurrentPreparedStatements(connection);
+        // зыкрываем подготовленный запрос
         preparedStatement.close();
     }
 
