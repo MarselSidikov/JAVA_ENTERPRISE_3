@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="coursesRepository" class="ru.itis.spring.repositories.spring.CoursesRepositoryJdbcTemplateImpl">
+        <constructor-arg name="template" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg name="dataSource" ref="driverManagerDataSource"/>
+    </bean>
+
+    <bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="username" value="postgres"/>
+        <property name="password" value="qwerty007"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/education_center"/>
+    </bean>
+
+    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <constructor-arg name="configuration" ref="hikariConfig"/>
+    </bean>
+
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="password" value="qwerty007"/>
+        <property name="username" value="postgres"/>
+        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/education_center"/>
+    </bean>
+</beans>
