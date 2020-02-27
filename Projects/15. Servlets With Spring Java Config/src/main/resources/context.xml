@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="ru.itis.servlets"/>
+
+    <bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="username" value="postgres"/>
+        <property name="password" value="qwerty007"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/education_center"/>
+    </bean>
+
+    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <constructor-arg name="configuration" ref="hikariConfig"/>
+    </bean>
+
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="password" value="qwerty007"/>
+        <property name="username" value="postgres"/>
+        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/education_center"/>
+    </bean>
+</beans>
