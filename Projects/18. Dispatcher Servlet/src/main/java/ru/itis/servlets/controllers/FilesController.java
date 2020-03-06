@@ -1,21 +1,27 @@
 package ru.itis.servlets.controllers;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+@Controller
+public class FilesController {
+    @RequestMapping(value = "/files", method =  RequestMethod.POST)
+    public ModelAndView uploadFile(@RequestParam("file") MultipartFile multipartFile) {
+        int i = 0;
+        return null;
+    }
 
-public class FilesController implements Controller {
-    @Override
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        if (request.getMethod().equals("GET")) {
-            // TODO: вернуть файл по его имени, имя как параметр запроса
-        } else if (request.getMethod().equals("POST")) {
-            // TODO: сохранить файл на диске
-        } else {
+    // localhost:8080/files/123809183093qsdas09df8af.jpeg
 
-        }
+    @RequestMapping(value ="/files/{file-name:.+}" , method = RequestMethod.GET)
+    public ModelAndView getFile(@PathVariable("file-name") String fileName) {
+        // TODO: найти на диске
+        // TODO: отдать пользователю
         return null;
     }
 }
