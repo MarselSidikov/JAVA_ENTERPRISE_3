@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ru.itis.hibernate.Lesson">
+        <id name="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+
+        <property name="name"/>
+
+        <many-to-one name="course" class="ru.itis.hibernate.Course">
+            <column name="course_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
