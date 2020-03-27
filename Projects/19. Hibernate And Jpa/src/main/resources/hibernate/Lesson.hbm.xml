@@ -3,18 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="ru.itis.hibernate.Course">
+    <class name="ru.itis.orm.Lesson">
         <id name="id" type="java.lang.Long">
             <generator class="identity"/>
         </id>
 
-        <property name="title"/>
+        <property name="name"/>
 
-        <bag name="lessons">
-            <key>
-                <column name="course_id"/>
-            </key>
-            <one-to-many class="ru.itis.hibernate.Lesson"/>
-        </bag>
+        <many-to-one name="course" class="ru.itis.orm.Course">
+            <column name="course_id"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

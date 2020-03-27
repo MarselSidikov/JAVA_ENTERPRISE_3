@@ -17,4 +17,15 @@
 
 * Три состояния объекта в Hibernate - `TRANSIENT`, `PERSISTENT`, `DETACHED`
 
+* [HQL](https://www.tutorialspoint.com/hibernate/hibernate_query_language.htm)
+
+* JPA (набор интерфейсов и аннотации) - стандарт реалации ORM в Java
+
+* EntityManager - менеджер сущностей в JPA
+
+* EntityManagerFactory - фабрика менеджера сущностей.
+
+* LocalContainerEntityManagerFactoryBean - фабрика менеджера сущностей Spring-а
+
+* Spring Data Jpa - работа с JPA/Hibernate внутри Spring
 

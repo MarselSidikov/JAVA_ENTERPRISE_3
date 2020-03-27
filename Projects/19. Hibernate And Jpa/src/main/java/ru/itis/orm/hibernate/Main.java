@@ -1,17 +1,19 @@
-package ru.itis.hibernate;
+package ru.itis.orm.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import ru.itis.orm.Course;
+import ru.itis.orm.Lesson;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
+        configuration.configure("hibernate/hibernate.cfg.xml");
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
 
