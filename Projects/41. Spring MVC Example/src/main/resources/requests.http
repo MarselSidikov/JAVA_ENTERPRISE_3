@@ -1,0 +1,21 @@
+GET http://localhost:8080/users/search?email=r
+Accept: */*
+Cache-Control: no-cache
+###
+
+POST http://localhost:8080/users/add
+Content-Type: application/json
+
+{
+  "email" : "superemail@gmail.com",
+  "password" : "qwerty00999"
+}
+
+###
+
+GET http://localhost:8080/rooms/search?page=0&size=10&name=Room&creatorName=Marsel
+
+###
+GET http://localhost:8080/rooms
+
+###

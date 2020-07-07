@@ -1,0 +1,12 @@
+GET http://localhost/disciplines/2/courses?token=token3
+
+###
+
+POST http://localhost/courses/2/lessons?token=token1
+Content-Type: application/json
+
+{
+  "name" : "Rest api"
+}
+
+###
