@@ -18,9 +18,12 @@ import java.util.List;
 @Component
 public class UsersServiceImpl implements UsersService {
 
-    @Autowired
-    @Qualifier("usersRepositoryJdbcTemplateImpl")
     private UsersRepository usersRepository;
+
+    @Autowired
+    public UsersServiceImpl(@Qualifier("usersRepositoryJdbcTemplateImpl") UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
+    }
 
     @Override
     public List<User> getAllUsers() {

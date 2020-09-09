@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.itis.servlets.services.CoursesService;
 
 @Controller
-@Profile("mvc")
 public class CoursesMvcController {
 
     @Autowired

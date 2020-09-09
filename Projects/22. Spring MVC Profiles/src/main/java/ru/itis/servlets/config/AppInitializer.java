@@ -23,8 +23,8 @@ public class AppInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext springWebContext = new AnnotationConfigWebApplicationContext();
 
-        PropertySource propertySource = new ResourcePropertySource("classpath:application.properties");
-        springWebContext.getEnvironment().setActiveProfiles((String) propertySource.getProperty("current.profile"));
+//        PropertySource propertySource = new ResourcePropertySource("classpath:application.properties");
+//        springWebContext.getEnvironment().setActiveProfiles((String) propertySource.getProperty("current.profile"));
 
         springWebContext.register(ApplicationContextConfig.class);
         servletContext.addListener(new ContextLoaderListener(springWebContext));
