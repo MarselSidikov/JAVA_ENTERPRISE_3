@@ -20,9 +20,9 @@ public class Consumer {
             Connection connection = connectionFactory.newConnection();
             Channel channel = connection.createChannel();
             // читаем сообщения из очереди
-            channel.basicConsume(QUEUE_1, false, (consumerTag, message) -> {
+            channel.basicConsume(QUEUE_2, false, (consumerTag, message) -> {
                 System.out.println(consumerTag);
-                System.out.println("Message FROM " + QUEUE_1 + " " + new String(message.getBody()));
+                System.out.println("Message FROM " + QUEUE_2 + " " + new String(message.getBody()));
             }, consumerTag -> {});
         } catch (IOException | TimeoutException e) {
             throw new IllegalArgumentException(e);
