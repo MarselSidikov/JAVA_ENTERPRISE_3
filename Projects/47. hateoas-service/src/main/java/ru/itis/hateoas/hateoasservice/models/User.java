@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Student {
+public class User {
     @Id
     @GeneratedValue
     private Long id;

@@ -47,18 +47,18 @@ public class CoursesTest {
                 .andExpect(jsonPath("$.description").value(publishedCourse().getDescription()))
                 .andExpect(jsonPath("$.state").value(publishedCourse().getState()))
                 .andDo(document("publish_course", responseFields(
-                        fieldWithPath("title").description("Название курса"),
-                        fieldWithPath("description").description("Описание курса"),
-                        fieldWithPath("state").description("Состояние курса")
+                        fieldWithPath("title").description("Title of course"),
+                        fieldWithPath("description").description("Description of course"),
+                        fieldWithPath("state").description("State of course")
                 )));
     }
 
     private Course publishedCourse() {
         return Course.builder()
                 .id(1L)
-                .description("Deep in Java")
+                .description("All about Spring")
                 .state("PUBLISHED")
-                .title("JAVA")
+                .title("Spring 5")
                 .build();
     }
 }

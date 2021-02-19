@@ -1,16 +1,10 @@
-= Описание API по курсам
+= Course API
 
-== Методы
+== Methods
 
-|===
-|Метод | Назначение
-|`PUT`
-|Обновить сущность или ее состояние
-|===
+=== Course publish
 
-=== Публикация курса
-
-Можно опубликовать курсы со статусом *PUBLISHED*
+You can publish a course with status *DRAFT*
 
 .request
 

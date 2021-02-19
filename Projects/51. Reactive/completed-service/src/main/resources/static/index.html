@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function loadData() {
+        const source = new EventSource("/files/completed");
+        source.addEventListener('message', event => {
+            let data = JSON.parse(event.data);
+            let images = document.getElementById("images");
+            if (data['mime'].startsWith("image")) {
+                images.innerHTML += '<img width="100px" src="' + data['url'] + '"/><br>';
+                images.innerHTML += '<p>' + data['mime'] + '</p><br>';
+            }
+        });
+    }
+</script>
+<body>
+<button onclick="loadData()">Начать</button>
+<div id="images"></div>
+</body>
+</html>

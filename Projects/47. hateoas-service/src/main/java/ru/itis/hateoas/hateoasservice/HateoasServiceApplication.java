@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import ru.itis.hateoas.hateoasservice.models.Course;
 import ru.itis.hateoas.hateoasservice.models.Lesson;
-import ru.itis.hateoas.hateoasservice.models.Student;
+import ru.itis.hateoas.hateoasservice.models.User;
 import ru.itis.hateoas.hateoasservice.repositories.CoursesRepository;
 import ru.itis.hateoas.hateoasservice.repositories.LessonsRepository;
-import ru.itis.hateoas.hateoasservice.repositories.StudentsRepository;
+import ru.itis.hateoas.hateoasservice.repositories.UsersRepository;
 
 import java.util.Collections;
 
@@ -22,7 +22,7 @@ public class HateoasServiceApplication {
 
         CoursesRepository coursesRepository = context.getBean(CoursesRepository.class);
         LessonsRepository lessonsRepository = context.getBean(LessonsRepository.class);
-        StudentsRepository studentsRepository = context.getBean(StudentsRepository.class);
+        UsersRepository studentsRepository = context.getBean(UsersRepository.class);
 
         Course javaLab = Course.builder()
                 .description("Курс по разработке на Java")
@@ -69,13 +69,13 @@ public class HateoasServiceApplication {
                 firstDataLabLesson,
                 secondDataLabLesson));
 
-        Student daria = Student.builder()
+        User daria = User.builder()
                 .firstName("Дария")
                 .lastName("Шагиева")
                 .courses(asList(javaLab, dataLab))
                 .build();
 
-        Student emil = Student.builder()
+        User emil = User.builder()
                 .firstName("Эмиль")
                 .lastName("Аминов")
                 .courses(Collections.singletonList(javaLab))

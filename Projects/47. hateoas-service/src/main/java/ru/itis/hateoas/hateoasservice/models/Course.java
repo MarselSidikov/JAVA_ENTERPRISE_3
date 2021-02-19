@@ -25,7 +25,7 @@ public class Course {
     private List<Lesson> lessons;
 
     @ManyToMany(mappedBy = "courses")
-    private List<Student> students;
+    private List<User> students;
 
     private String state;
 
