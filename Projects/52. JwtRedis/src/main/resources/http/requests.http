@@ -1,0 +1,21 @@
+POST http://localhost/login
+Content-Type: application/json
+
+{
+  "email": "sidikov.marsel@gmail.com",
+  "password": "qwerty007"
+}
+
+###
+
+GET http://localhost/teachers
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiY3JlYXRlZEF0IjoiMjAyMS0wNC0wOVQxNTozMDoyNS42MzciLCJyb2xlIjoiQURNSU4iLCJzdGF0ZSI6IkFDVElWRSIsImVtYWlsIjoic2lkaWtvdi5tYXJzZWxAZ21haWwuY29tIn0.ADgjiCC3psxg-CxjO2zAMXryiRXpbQ2mH13FPylnZrk
+###
+
+GET http://localhost/logout
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiY3JlYXRlZEF0IjoiMjAyMS0wNC0wOVQxNDo1NDozNS42MjMiLCJyb2xlIjoiQURNSU4iLCJzdGF0ZSI6IkFDVElWRSIsImVtYWlsIjoic2lkaWtvdi5tYXJzZWxAZ21haWwuY29tIn0._61QBr2RvzWYkEXzfoEQ2vZP-iMbMVnB2pT8Tkkq7Qk
+
+###
+
+POST http://localhost/users/1/block
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiY3JlYXRlZEF0IjoiMjAyMS0wNC0wOVQxNTozMDoyNS42MzciLCJyb2xlIjoiQURNSU4iLCJzdGF0ZSI6IkFDVElWRSIsImVtYWlsIjoic2lkaWtvdi5tYXJzZWxAZ21haWwuY29tIn0.ADgjiCC3psxg-CxjO2zAMXryiRXpbQ2mH13FPylnZrk
